@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.license = 'BSD-3-Clause'
   s.summary = 'Secret String'
   s.description = 'Remove secrets (passwords, keys...) from memory'
-  s.required_ruby_version = '~> 2.6'
+  s.required_ruby_version = '~> 2.7'
 
   s.files = Dir['*.md'] + Dir['{bin,docs,examples,lib,spec,tools}/**/*']
   s.executables = Dir['bin/**/*'].map { |exec_name| File.basename(exec_name) }
