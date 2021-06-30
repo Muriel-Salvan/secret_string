@@ -8,15 +8,15 @@ This Rubygem gives you ways to clean sensitive data (secrets, SSH keys, password
 
 ## Install
 
-Via gem
+Via gem command line:
 
-``` bash
-$ gem install secret_string
+```bash
+gem install secret_string
 ```
 
 If using `bundler`, add this in your `Gemfile`:
 
-``` ruby
+```ruby
 gem 'secret_string'
 ```
 
@@ -63,7 +63,7 @@ end
 
 ### With the `SecretString` class
 
-If you need more control (like having a simple scope is not enough), you can directly use the `SecureString` class to protect your strings.
+If you need more control (like having a simple scope is not enough), you can directly use the `SecretString` class to protect your strings.
 If you do so, don't forget to call the `erase` method to clean their data, and make sure you didn't clone the secret in other variables.
 
 Example:
@@ -102,7 +102,7 @@ puts "My secret after being erased is #{my_secret}"
 # => My secret after being erased is
 ```
 
-The `erase` and `to_unprotected` methods have also been added to the core String class so that you can treat both `String` and `SecretString` easily within your code logic (no need to plague your code with `if str.is_a?(SecureString)`). Those methods won't do or change anything to the normal Ruby Strings.
+The `erase` and `to_unprotected` methods have also been added to the core String class so that you can treat both `String` and `SecretString` easily within your code logic (no need to plague your code with `if str.is_a?(SecretString)`). Those methods won't do or change anything to the normal Ruby Strings.
 
 Example:
 ```ruby
