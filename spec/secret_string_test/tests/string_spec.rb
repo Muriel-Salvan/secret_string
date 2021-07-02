@@ -10,4 +10,9 @@ describe String do
     expect(str).to eq 'MySecret'
   end
 
+  it 'equals the unprotected value of a secret string' do
+    str = 'MySecret'
+    expect(str).to eq SecretString.new('MySecret', silenced_str: 'SilencedString')
+  end
+
 end
