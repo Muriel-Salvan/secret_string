@@ -59,6 +59,7 @@ class SecretString
     ==
     =~
     match
+    size
   ]
 
   # Return the unprotected String

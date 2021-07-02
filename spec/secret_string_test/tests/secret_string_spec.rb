@@ -33,6 +33,10 @@ describe SecretString do
       expect(secret =~ /Secret/).not_to be nil
     end
 
+    it 'reports the correct size' do
+      expect(secret.size).to eq 'MySecret'.size
+    end
+
   end
 
   describe 'erase' do
