@@ -1,3 +1,9 @@
+# [v1.1.0](https://github.com/Muriel-Salvan/secret_string/compare/v1.0.1...v1.1.0) (2021-07-07 10:21:42)
+
+### Features
+
+* [[Feature] Add equality and pattern matching facilities between String and SecretString](https://github.com/Muriel-Salvan/secret_string/commit/8bc056e66b21ee2d289e0c14fce43be9a0104434)
+
 # [v1.0.1](https://github.com/Muriel-Salvan/secret_string/compare/v1.0.0...v1.0.1) (2021-06-30 10:46:43)
 
 ### Patches
