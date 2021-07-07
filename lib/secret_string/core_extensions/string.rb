@@ -19,10 +19,24 @@ class SecretString
         # Nothing to do
       end
 
+      # Compare the String with another object
+      #
+      # Parameters::
+      # * *other* (Object): Other object
+      # Result::
+      # * Boolean: Are objects equal?
+      def ==(other)
+        if other.is_a?(SecretString)
+          other == self
+        else
+          super
+        end
+      end
+
     end
 
   end
 
 end
 
-String.include SecretString::CoreExtensions::String
+String.prepend SecretString::CoreExtensions::String

@@ -46,11 +46,20 @@ class SecretString
     @silenced_str = silenced_str
   end
 
-  # Delegate the String representations methods to the silenced String by default
   extend Forwardable
+
+  # Delegate the String representations methods to the silenced String
   def_delegators :@silenced_str, *%i[
     inspect
     to_s
+  ]
+
+  # Delegate the String identity methods to the unprotected String
+  def_delegators :@str, *%i[
+    ==
+    =~
+    match
+    size
   ]
 
   # Return the unprotected String

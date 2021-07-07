@@ -21,6 +21,22 @@ describe SecretString do
       expect(secret.to_unprotected).not_to eq 'MySecret'
     end
 
+    it 'equals correctly with a string having the same content' do
+      expect(secret).to eq 'MySecret'
+    end
+
+    it 'matches correctly with a string having the same content' do
+      expect(secret).to match(/Secret/)
+    end
+
+    it 'matches correctly using the =~ operator with a string having the same content' do
+      expect(secret =~ /Secret/).not_to be nil
+    end
+
+    it 'reports the correct size' do
+      expect(secret.size).to eq 'MySecret'.size
+    end
+
   end
 
   describe 'erase' do
