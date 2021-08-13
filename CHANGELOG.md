@@ -1,3 +1,9 @@
+# [v1.1.1](https://github.com/Muriel-Salvan/secret_string/compare/v1.1.0...v1.1.1) (2021-08-13 09:59:55)
+
+### Patches
+
+* [[Fix] [#2] Handle frozen strings with correct exception messages before using them](https://github.com/Muriel-Salvan/secret_string/commit/b3e21e57613a6d39feca2118d272264cb77bdb5f)
+
 # [v1.1.0](https://github.com/Muriel-Salvan/secret_string/compare/v1.0.1...v1.1.0) (2021-07-07 10:21:42)
 
 ### Features
