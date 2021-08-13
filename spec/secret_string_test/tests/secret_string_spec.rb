@@ -39,12 +39,25 @@ describe SecretString do
 
   end
 
+  context 'with a silenced frozen string' do
+
+    it 'fails to initialize a secret string frozen' do
+      expect { described_class.new('MySecret'.freeze, silenced_str: 'SilencedString') }.to raise_error 'Can\'t silence a frozen string'
+    end
+
+  end
+
   describe 'erase' do
 
     it 'erases a String' do
       str = 'MySecret'
       described_class.erase(str)
       expect(str).not_to eq 'MySecret'
+    end
+
+    it 'fails to erase a frozen String' do
+      str = 'MySecret'.freeze
+      expect { described_class.erase(str) }.to raise_error 'Can\'t erase a frozen string'
     end
 
   end
@@ -59,6 +72,17 @@ describe SecretString do
         expect(str.to_s).to eq 'MySecret'
       end
       expect(str.to_s).not_to eq 'MySecret'
+    end
+
+    it 'fails to protect a frozen String' do
+      str = 'MySecret'.freeze
+      called = false
+      expect do
+        described_class.protect(str, silenced_str: 'SilencedString') do
+          called = true
+        end
+      end.to raise_error 'Can\'t protect a frozen string'
+      expect(called).to eq false
     end
 
   end
