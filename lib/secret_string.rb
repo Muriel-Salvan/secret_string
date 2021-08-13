@@ -12,6 +12,8 @@ class SecretString
     # Parameters::
     # * *secret* (String): The secret to erase from memory
     def erase(secret)
+      raise 'Can\'t erase a frozen string' if secret.frozen?
+
       secret_size = secret.bytesize
       io = StringIO.new("\0" * secret_size)
       io.read(secret_size, secret)
@@ -21,16 +23,20 @@ class SecretString
     # Make sure the String will be erased at the end of its access.
     #
     # Parameters::
-    # * *str* (String): String to protect
+    # * *str* (String): String to protect, unfrozen
     # * *silenced_str* (String): The protected representation of this string [default: 'XXXXX']
     # * Proc: Code called with the string secured
     #   * Parameters::
     #     * *secretstring* (SecretString): The secret string
     def protect(str, silenced_str: 'XXXXX')
-      secret_string = SecretString.new(str, silenced_str: silenced_str)
-      yield secret_string
-    ensure
-      secret_string.erase
+      raise 'Can\'t protect a frozen string' if str.frozen?
+
+      begin
+        secret_string = SecretString.new(str, silenced_str: silenced_str)
+        yield secret_string
+      ensure
+        secret_string.erase
+      end
     end
 
   end
@@ -38,9 +44,11 @@ class SecretString
   # Constructor
   #
   # Parameters::
-  # * *str* (String): The original string to protect
+  # * *str* (String): The original string to protect, unfrozen
   # * *silenced_str* (String): The silenced representation of this string [default: 'XXXXX']
   def initialize(str, silenced_str: 'XXXXX')
+    raise 'Can\'t silence a frozen string' if str.frozen?
+
     @str = str
     # Make sure we manipulate @str without cloning or modifying it from now on.
     @silenced_str = silenced_str
