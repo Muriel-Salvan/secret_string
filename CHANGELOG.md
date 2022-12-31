@@ -1,3 +1,9 @@
+# [v1.1.2](https://github.com/Muriel-Salvan/secret_string/compare/v1.1.1...v1.1.2) (2022-12-31 11:23:01)
+
+### Patches
+
+* [Update to Ruby 3.1 - Support of 2.7 dropped](https://github.com/Muriel-Salvan/secret_string/commit/a339478b3ab6e4477971d9a7b583595586dfcce8)
+
 # [v1.1.1](https://github.com/Muriel-Salvan/secret_string/compare/v1.1.0...v1.1.1) (2021-08-13 09:59:55)
 
 ### Patches
