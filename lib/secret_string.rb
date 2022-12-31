@@ -32,7 +32,7 @@ class SecretString
       raise 'Can\'t protect a frozen string' if str.frozen?
 
       begin
-        secret_string = SecretString.new(str, silenced_str: silenced_str)
+        secret_string = SecretString.new(str, silenced_str:)
         yield secret_string
       ensure
         secret_string.erase
