@@ -30,7 +30,7 @@ describe SecretString do
     end
 
     it 'matches correctly using the =~ operator with a string having the same content' do
-      expect(secret =~ /Secret/).not_to be nil
+      expect(secret =~ /Secret/).not_to be_nil
     end
 
     it 'reports the correct size' do
@@ -82,7 +82,7 @@ describe SecretString do
           called = true
         end
       end.to raise_error 'Can\'t protect a frozen string'
-      expect(called).to eq false
+      expect(called).to be false
     end
 
   end
